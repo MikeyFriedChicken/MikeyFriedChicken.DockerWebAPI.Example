@@ -13,23 +13,27 @@ $ docker-compose build
 ```sh
 $ docker-compose up
 ```
-
-### Check containers
+## Diagnosis
+### Running Containers
+To check the docker containers running type the following:
 ```sh
 $ docker ps
 ```
 
-### To check the logs get the container id from the previous command 'docker ps'
+### Logs
+To check the logs get the container id from the previous command 'docker ps' and type the following:
 ```sh
 $ docker logs --details -f -t <container id>
 ```
 
-### To explore via bash terminal
+### Terminal
+To explore inside the container via a terminal type the following:
 ```sh
 $ docker exec -it <container id>  /bin/bash
 ```
 
-## Test the .net core api using the sample web client
+## Testing
+###To check it all works and hit the the .net core api use the sample web client as follows:###
 Open chrome using the following command
 ```sh
 $ chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security
@@ -37,7 +41,7 @@ $ chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security
 Go to the following in your browser: http://localhost:13000/ and press 'Click Me'.  The host name of the underlying API service should be returned.
 
 ## Configuration & How it works
-## [Docker - links](https://docs.docker.com/compose/compose-file/#links)
+### [Docker - links](https://docs.docker.com/compose/compose-file/#links)
 Inside docker-compose.yml we link the nginx proxy service to the API containers using the following:
 ```
     links:
@@ -50,13 +54,13 @@ Inside docker-compose.yml we link the nginx proxy service to the API containers 
 Note: This is not required unless alias of service names are needed. However, helpful to include.
 
 
-## [Docker - expose](https://docs.docker.com/compose/compose-file/#expose)
+### [Docker - expose](https://docs.docker.com/compose/compose-file/#expose)
 Inside docker-compose.yml each api uses 'expose' to make the service via the exposed port available to the linked services.  Note: this does not publish the port to the host machine.
 
-## [Docker - ports](https://docs.docker.com/compose/compose-file/#ports)
+### [Docker - ports](https://docs.docker.com/compose/compose-file/#ports)
 Inside docker-compose.yml each api the 'nginx proxy' and 'gui' services expose their internal port of 80 to the host ports 12000 & 13000 respectivly. 
 
-## [NGINX Load Balancing](http://nginx.org/en/docs/http/load_balancing.html)
+### [NGINX Load Balancing](http://nginx.org/en/docs/http/load_balancing.html)
 Inside nginx.conf we have configred requests to 'round robin' between the API instances by the following configuration:
 ```
     links:
