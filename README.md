@@ -33,7 +33,7 @@ $ docker exec -it <container id>  /bin/bash
 ```
 
 ## Testing
-###To check it all works and hit the the .net core api use the sample web client as follows:###
+### To check it all works and hit the the .net core api use the sample web client as follows:
 Open chrome using the following command
 ```sh
 $ chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security
