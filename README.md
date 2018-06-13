@@ -33,13 +33,17 @@ $ docker exec -it <container id>  /bin/bash
 ```
 
 ## Testing
-### To check it all works and hit the the .net core api use the sample web client as follows:
-Open chrome using the following command
+To check it all works and hit the the .net core api use the sample web client as follows:
+1. Open chrome using the following command
 ```sh
 $ chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security
 ```
-Go to the following in your browser: http://localhost:13000/ and press 'Click Me'.  
-The host name of the underlying API service should be returned.
+2. Go to the following in your browser:
+``` 
+http://localhost:13000/ 
+```
+3. Press 'Click Me'.  
+4. The host name of the underlying API service should be returned.
 
 ## Configuration & How it works
 ### [Docker Compose - links](https://docs.docker.com/compose/compose-file/#links)
