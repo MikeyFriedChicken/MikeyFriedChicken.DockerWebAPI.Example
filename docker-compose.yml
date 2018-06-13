@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  app:
+    build:
+      context: ./MikeyFriedChicken.DockerWebAPI.Example
+      dockerfile: ./Docker/Dockerfile
+    expose:
+      - "11000"
+  proxy:
+    build:
+      context:  ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - "12000:80"
+    links:
+      - app
+  gui:
+    build:
+      context: ./GUI
+      dockerfile: ./Dockerfile
+    ports:
+      - "13000:80"
