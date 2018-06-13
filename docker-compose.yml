@@ -1,10 +1,27 @@
 version: '3.4'
 
 services:
-  app:
+  api1:
+    image: webapiexample
     build:
       context: ./MikeyFriedChicken.DockerWebAPI.Example
       dockerfile: ./Docker/Dockerfile
+    expose:
+      - "11000"
+  api2:
+    image: webapiexample
+    expose:
+      - "11000"
+  api3:
+    image: webapiexample
+    expose:
+      - "11000"
+  api4:
+    image: webapiexample
+    expose:
+      - "11000"
+  api5:
+    image: webapiexample
     expose:
       - "11000"
   proxy:
@@ -14,7 +31,11 @@ services:
     ports:
       - "12000:80"
     links:
-      - app
+      - api1:api1
+      - api2:api2
+	  - api3:api3
+	  - api4:api4
+	  - api5:api5
   gui:
     build:
       context: ./GUI

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Cors;
@@ -16,7 +17,20 @@ namespace MikeyFriedChicken.DockerWebAPI.Example.Controllers
 
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            string computerName = Environment.GetEnvironmentVariable("COMPUTERNAME") ?? "None";
+            string hostName = Environment.GetEnvironmentVariable("HOSTNAME") ?? "None";
+            string processId = Process.GetCurrentProcess().Id.ToString();
+            string processName = Process.GetCurrentProcess().ProcessName;
+            string machineName = Process.GetCurrentProcess().MachineName;
+
+            ColorConsole.WriteLine("'Get' Request received by '{0}' ", "cyan", hostName);
+
+            return new string[]
+            {
+                "Computer Name: " + computerName, "Host Name: " + hostName, "Machine Name: " + machineName,
+                "Process Id: " + processId, "Process Name: " + processName
+            };
+
         }
 
         // GET api/values/5

@@ -1,0 +1,10 @@
+/bin
+/obj
+/nginx/obj
+/GUI/obj
+/MikeyFriedChicken.DockerWebAPI.Example/bin
+/MikeyFriedChicken.DockerWebAPI.Example/obj
+/.vscode
+/.vs/*
+*storage.ide-shm*
+*.vs*
