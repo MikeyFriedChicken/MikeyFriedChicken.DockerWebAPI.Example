@@ -1,6 +1,6 @@
 
 # Docker WebAPI & Nginx Example
-- This example shows you how to create a basic **.Net Core WebAPI** hosted in a **docker** container accessed via a seperate **[Nginx](https://www.nginx.com/)** docker container reverse proxy.  There is a third docker container also using nginx to host a client index.html test web page.
+- This example shows you how to create a basic **[.Net Core WebAPI](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-2.1)** hosted in a **[docker](https://www.docker.com/)** container accessed via a seperate **[Nginx](https://www.nginx.com/)** docker container reverse proxy.  There is a third docker container also using nginx to host a client index.html test web page.
 - This is all achieved using **[docker-compose](https://docs.docker.com/compose/)** to combine the three docker files as required.
 
 ## Building and Running
