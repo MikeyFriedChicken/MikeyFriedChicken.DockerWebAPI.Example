@@ -74,11 +74,10 @@ Inside docker-compose.yml each api the 'nginx proxy' and 'gui' services expose t
 ```
 
 ### [NGINX Load Balancing](http://nginx.org/en/docs/http/load_balancing.html)
-Inside nginx.conf we have configred requests to 'round robin' between the API instances by the following configuration:
+Inside nginx.conf we have configured requests to 'round robin' (default when alternative not specified) between the API instances by the following configuration:
 ```
     links:
     upstream api_servers {
-       round-robin;
 		server api1:11000;
 		server api2:11000;
 		server api3:11000;
